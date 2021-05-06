@@ -1,7 +1,6 @@
 import Axios from "axios";
-// import router from 'mjs@/plugins/vueRouter.js'
-// import store from 'mst@'
-// import { AUTH_LOGOUT } from 'mst@/actions/auth'
+
+import {getToken} from './api/token';
 
 // Дополнительные заголовки
 let customHeaders = {};
@@ -21,7 +20,7 @@ const axiosInstance = Axios.create({
 // REQUEST INTERCEPTOR
 axiosInstance.interceptors.request.use(
   (config) => {
-    const token = "";
+    const token = getToken();
     if (token) {
       config.headers["Authorization"] = token;
     }

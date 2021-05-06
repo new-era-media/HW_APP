@@ -4,11 +4,18 @@ export function USER_REQUEST() {
   return Axios.post("/user");
 }
 
-function USER_DELETE_PROFILE() {
+export function USER_DELETE_PROFILE() {
   return Axios.delete("profile/delete-profile");
 }
 
-function USER_CHOICE_ROLE(firstName, lastName, city, role, citizenship, pid) {
+export function USER_CHOICE_ROLE(
+  firstName,
+  lastName,
+  city,
+  role,
+  citizenship,
+  pid
+) {
   // TODO: ПОДПРАВИТЬ СОХРАНЕНИЕ БЭКА
   return Axios.post("/user-choice-role", {
     firstName,
@@ -20,20 +27,20 @@ function USER_CHOICE_ROLE(firstName, lastName, city, role, citizenship, pid) {
   });
 }
 
-export const AUTH_SEND_CODE = (phone) => {
+export function AUTH_SEND_CODE(phone) {
   return Axios.post("/send-code", {
     phone,
   });
-};
+}
 
-function AUTH_REQUEST(code, phone) {
+export function AUTH_REQUEST(code, phone) {
   return Axios.post("/auth", {
     code,
     phone,
   });
 }
 
-function AUTH_LOGOUT() {
+export function AUTH_LOGOUT() {
   return Axios.post("/logout");
 }
 
@@ -61,27 +68,27 @@ export function GET_PAGE_SECURITY() {
   return Axios.get("/pages/security");
 }
 
-function STORE_USER_PROFILE(formData) {
+export function STORE_USER_PROFILE(formData) {
   return Axios.put("/store-profile", formData);
 }
 
-function UPDATE_PROFILE_ITEMS(data) {
+export function UPDATE_PROFILE_ITEMS(data) {
   return Axios.put("profile/update-profile-items", data);
 }
 
-function CHOICE_CITIZENSHIP_AND_PROFESSION(data) {
+export function CHOICE_CITIZENSHIP_AND_PROFESSION(data) {
   return Axios.put("profile/choice-citizenship-and-professions", data);
 }
 
-function CHOICE_CITIZENSHIP(data) {
+export function CHOICE_CITIZENSHIP(data) {
   return Axios.put("profile/choice-citizenship", data);
 }
 
-function CHOICE_PROFESSIONS(data) {
+export function CHOICE_PROFESSIONS(data) {
   return Axios.put("profile/choice-professions", data);
 }
 
-function BIND_REFERRER(data) {
+export function BIND_REFERRER(data) {
   return Axios.put("profile/bind-referrer", data);
 }
 export function UPLOAD_PROFILE_DOCS(data) {
@@ -384,17 +391,3 @@ export function CANCEL_CONTRACT(id) {
     (response) => response.data
   );
 }
-
-export default {
-  USER_DELETE_PROFILE,
-  USER_REQUEST,
-  USER_CHOICE_ROLE,
-  AUTH_REQUEST,
-  AUTH_LOGOUT,
-  STORE_USER_PROFILE,
-  UPDATE_PROFILE_ITEMS,
-  CHOICE_CITIZENSHIP_AND_PROFESSION,
-  CHOICE_CITIZENSHIP,
-  CHOICE_PROFESSIONS,
-  BIND_REFERRER,
-};
