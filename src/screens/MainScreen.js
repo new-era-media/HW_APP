@@ -3,9 +3,11 @@ import { HeaderApp } from "../components/header";
 import { Button, Container, Text } from "native-base";
 import { AUTH_SEND_CODE } from "../api";
 
+const phone = 9999999999;
+
 const restApi = () => {
-  AUTH_SEND_CODE(9197301071).then((res) => {
-    console.log(res);
+  AUTH_SEND_CODE(phone).then((res) => {
+    // console.log(res);
   });
 };
 
