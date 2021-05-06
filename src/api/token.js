@@ -2,8 +2,8 @@ import * as SecureStore from "expo-secure-store";
 
 const LS_TOKEN_NAME = "user-token";
 
-export const setToken = async () => {
-  await SecureStore.setItemAsync(LS_TOKEN_NAME, "НАШЕ ЗНАЧЕНИЕ");
+export const setToken = async (value) => {
+  await SecureStore.setItemAsync(LS_TOKEN_NAME, value.toString());
 };
 
 export const getToken = async () => {
@@ -11,5 +11,5 @@ export const getToken = async () => {
 };
 
 export const removeToken = async () => {
-  return await SecureStore.deleteItemAsync(LS_TOKEN_NAME);
+  await SecureStore.deleteItemAsync(LS_TOKEN_NAME);
 };

@@ -1,26 +1,12 @@
 import React from "react";
 import { HeaderApp } from "../components/header";
-import { Button, Container, Text } from "native-base";
-import { AUTH_SEND_CODE } from "../api";
+import { Container, Text } from "native-base";
 
-
-
-const phone = 9999999999;
-
-const restApi = () => {
-  AUTH_SEND_CODE(phone).then((res) => {
-    console.log(res);
-  });
+export const MainScreen = ({ navigation }) => {
+  return (
+    <Container>
+      <HeaderApp navigation={navigation} title='Главная страница' />
+      <Text>Main Page</Text>
+    </Container>
+  );
 };
-
-export const MainScreen = ({ navigation }) => (
-  <Container>
-    <HeaderApp navigation={navigation} title='Главная страница' />
-
-    <Button onPress={restApi}>
-      <Text>Запрос на сервер</Text>
-    </Button>
-
-    <Text>Main Page</Text>
-  </Container>
-);
