@@ -1,3 +1,5 @@
+import * as SecureStore from "expo-secure-store";
+
 const LS_TOKEN_NAME = "user-token";
 
 export const setToken = async () => {
